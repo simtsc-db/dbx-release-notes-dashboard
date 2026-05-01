@@ -1,0 +1,34 @@
+resources:
+  jobs:
+    release_notes_etl:
+      name: Daily Databricks Release Notes ETL
+
+      description: >
+        Fetches AWS, Azure, and GCP Databricks release notes from RSS feeds
+        and What's Coming pages, upserts into
+        ${var.catalog}.${var.schema}.release_notes with content-hash
+        change detection. Reports inserted/updated/untouched counts each run.
+
+      max_concurrent_runs: 1
+
+      queue:
+        enabled: true
+
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ? *"
+        timezone_id: Asia/Singapore
+        pause_status: UNPAUSED
+
+      email_notifications:
+        on_failure:
+          - ${var.notification_email}
+
+      tasks:
+        - task_key: ingest_release_notes
+          notebook_task:
+            notebook_path: ../src/release_notes_etl.ipynb
+            source: WORKSPACE
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+          timeout_seconds: 1800

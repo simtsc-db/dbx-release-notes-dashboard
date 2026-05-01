@@ -1,0 +1,868 @@
+{
+  "datasets": [
+    {
+      "name": "release_notes",
+      "displayName": "Release Notes",
+      "config": {
+        "version": 1.1,
+        "source": "main.databricks_release_notes.release_notes",
+        "dimensions": [
+          {
+            "name": "cloud",
+            "expr": "cloud",
+            "displayName": "Cloud"
+          },
+          {
+            "name": "title",
+            "expr": "title",
+            "displayName": "Title"
+          },
+          {
+            "name": "description",
+            "expr": "description",
+            "displayName": "Description"
+          },
+          {
+            "name": "pub_date",
+            "expr": "pub_date",
+            "displayName": "Published Date",
+            "format": {
+              "type": "date",
+              "dateFormat": "year_month_day"
+            }
+          },
+          {
+            "name": "pub_month",
+            "expr": "DATE_TRUNC('MONTH', pub_date)",
+            "displayName": "Published Month",
+            "format": {
+              "type": "date",
+              "dateFormat": "locale_short_month"
+            }
+          },
+          {
+            "name": "url",
+            "expr": "url",
+            "displayName": "URL"
+          },
+          {
+            "name": "status",
+            "expr": "status",
+            "displayName": "Status"
+          },
+          {
+            "name": "feature",
+            "expr": "feature",
+            "displayName": "Feature"
+          },
+          {
+            "name": "impact",
+            "expr": "impact",
+            "displayName": "Impact"
+          },
+          {
+            "name": "categories",
+            "expr": "categories",
+            "displayName": "Categories"
+          },
+          {
+            "name": "source",
+            "expr": "source",
+            "displayName": "Source"
+          }
+        ],
+        "measures": [
+          {
+            "name": "entry_count",
+            "expr": "COUNT(*)",
+            "displayName": "Entry Count"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "1ccea64c",
+      "displayName": "Overview",
+      "layout": [
+        {
+          "widget": {
+            "name": "header",
+            "multilineTextboxSpec": {
+              "lines": [
+                "## Databricks Release Notes Tracker\n",
+                "AWS & Azure release notes, upcoming features, and breaking changes — updated daily.\n",
+                "\n",
+                "**Impact classification:** **High** = breaking changes, deprecations, behavior changes · **Medium** = GA releases, upcoming features, general updates · **Low** = Public Preview, Beta, Maintenance"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_cloud",
+            "queries": [
+              {
+                "name": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_cloud",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "cloud",
+                      "expression": "`cloud`"
+                    },
+                    {
+                      "name": "cloud_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Cloud",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "cloud",
+                    "queryName": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_cloud"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_status",
+            "queries": [
+              {
+                "name": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_status",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "status",
+                      "expression": "`status`"
+                    },
+                    {
+                      "name": "status_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Status",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "status",
+                    "queryName": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_status"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 2,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_impact",
+            "queries": [
+              {
+                "name": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_impact",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "impact",
+                      "expression": "`impact`"
+                    },
+                    {
+                      "name": "impact_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Impact",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "impact",
+                    "queryName": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_impact"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 7,
+            "y": 2,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_feature",
+            "queries": [
+              {
+                "name": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_feature",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "feature",
+                      "expression": "`feature`"
+                    },
+                    {
+                      "name": "feature_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Feature",
+                "showTitle": true
+              },
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "feature",
+                    "queryName": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_feature"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 2,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_total",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "measure(entry_count)",
+                      "expression": "MEASURE(`entry_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "title": "Total Release Notes",
+                "showTitle": true
+              },
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "measure(entry_count)",
+                  "displayName": "Total Release Notes"
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_status",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "status",
+                      "expression": "`status`"
+                    },
+                    {
+                      "name": "measure(entry_count)",
+                      "expression": "MEASURE(`entry_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "By Status",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "status",
+                  "axis": {
+                    "title": "Status"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(entry_count)",
+                  "axis": {
+                    "title": "Count"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 4,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_cloud",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "cloud",
+                      "expression": "`cloud`"
+                    },
+                    {
+                      "name": "measure(entry_count)",
+                      "expression": "MEASURE(`entry_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "By Cloud",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "cloud",
+                  "axis": {
+                    "title": "Cloud"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(entry_count)",
+                  "axis": {
+                    "title": "Count"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "cloud",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "AWS",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 2
+                        }
+                      },
+                      {
+                        "value": "Azure",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 4,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_impact",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "impact",
+                      "expression": "`impact`"
+                    },
+                    {
+                      "name": "measure(entry_count)",
+                      "expression": "MEASURE(`entry_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "By Impact",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "impact",
+                  "axis": {
+                    "title": "Impact"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(entry_count)",
+                  "axis": {
+                    "title": "Count"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "impact",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "High",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 4
+                        }
+                      },
+                      {
+                        "value": "Medium",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 2
+                        }
+                      },
+                      {
+                        "value": "Low",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 3
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 4,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "line_timeline",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "cloud",
+                      "expression": "`cloud`"
+                    },
+                    {
+                      "name": "daily(pub_date)",
+                      "expression": "DATE_TRUNC(\"DAY\", `pub_date`)"
+                    },
+                    {
+                      "name": "measure(entry_count)",
+                      "expression": "MEASURE(`entry_count`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Release Notes Over Time",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "daily(pub_date)",
+                  "displayName": "Publication Date",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "measure(entry_count)",
+                  "displayName": "Number of Release Notes",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "cloud",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "AWS",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 2
+                        }
+                      },
+                      {
+                        "value": "Azure",
+                        "color": {
+                          "themeColorType": "visualizationColors",
+                          "position": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 20,
+            "width": 12,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "main_table",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "title",
+                      "expression": "`title`"
+                    },
+                    {
+                      "name": "cloud",
+                      "expression": "`cloud`"
+                    },
+                    {
+                      "name": "status",
+                      "expression": "`status`"
+                    },
+                    {
+                      "name": "feature",
+                      "expression": "`feature`"
+                    },
+                    {
+                      "name": "impact",
+                      "expression": "`impact`"
+                    },
+                    {
+                      "name": "pub_date",
+                      "expression": "`pub_date`"
+                    },
+                    {
+                      "name": "url",
+                      "expression": "`url`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "title": "Release Notes Detail",
+                "showTitle": true
+              },
+              "version": 2,
+              "rowsPerPage": 25,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "title",
+                    "columnWidth": 400,
+                    "displayName": "Title"
+                  },
+                  {
+                    "fieldName": "cloud",
+                    "displayName": "Cloud"
+                  },
+                  {
+                    "fieldName": "status",
+                    "displayName": "Status"
+                  },
+                  {
+                    "fieldName": "feature",
+                    "displayName": "Feature"
+                  },
+                  {
+                    "fieldName": "impact",
+                    "displayName": "Impact"
+                  },
+                  {
+                    "fieldName": "pub_date",
+                    "format": {
+                      "type": "date",
+                      "date": "year-month-day"
+                    },
+                    "displayName": "Published Date"
+                  },
+                  {
+                    "fieldName": "url",
+                    "displayName": "Link",
+                    "actions": {
+                      "click": {
+                        "type": "link",
+                        "urlTemplate": "{{ @ }}",
+                        "openInNewTab": true
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 11,
+            "width": 12,
+            "height": 9
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_date_range",
+            "queries": [
+              {
+                "name": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_pub_date",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "pub_date",
+                      "expression": "`pub_date`"
+                    },
+                    {
+                      "name": "pub_date_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "title": "Published Date",
+                "showTitle": true
+              },
+              "version": 2,
+              "selection": {
+                "defaultSelection": {
+                  "range": {
+                    "dataType": "DATE",
+                    "min": {
+                      "value": "now-1M/d"
+                    },
+                    "max": {
+                      "value": "now/d"
+                    }
+                  }
+                }
+              },
+              "widgetType": "filter-date-range-picker",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "pub_date",
+                    "queryName": "dashboards/01f144a4d1cd16fe988bc033a3742e6d/datasets/01f144a52e4711cbb40e52009a81a590_pub_date"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_feature",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "release_notes",
+                  "fields": [
+                    {
+                      "name": "measure(entry_count)",
+                      "expression": "MEASURE(`entry_count`)"
+                    },
+                    {
+                      "name": "feature",
+                      "expression": "`feature`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Distribution by Feature",
+                "showTitle": true
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "measure(entry_count)",
+                  "axis": {
+                    "title": "Count"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "feature",
+                  "axis": {
+                    "title": "Feature"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 28,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

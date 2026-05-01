@@ -1,0 +1,33 @@
+# Declarative Asset Bundle: Release Notes ETL
+# Deploy:  databricks bundle deploy -t dev
+# Run:     databricks bundle run -t dev release_notes_etl
+# Destroy: databricks bundle destroy -t dev
+
+bundle:
+  name: release-notes-etl
+
+include:
+  - resources/*.yml
+
+# Prevent lvdash.json from being synced as a plain file (avoids duplicates)
+sync:
+  exclude:
+    - src/*.lvdash.json
+
+variables:
+  catalog:
+    description: Unity Catalog catalog name
+  schema:
+    description: Unity Catalog schema name
+    default: databricks_release_notes
+  warehouse_id:
+    description: SQL warehouse ID for the dashboard
+  notification_email:
+    description: Email address for job failure notifications
+
+targets:
+  dev:
+    mode: development
+    default: true
+
+  prod: {}

@@ -1,0 +1,10 @@
+resources:
+  dashboards:
+    release_notes_tracker:
+      display_name: Databricks Release Notes Tracker
+
+      file_path: ../src/release_notes_tracker.lvdash.json
+      warehouse_id: ${var.warehouse_id}
+
+      dataset_catalog: ${var.catalog}
+      dataset_schema: ${var.schema}
