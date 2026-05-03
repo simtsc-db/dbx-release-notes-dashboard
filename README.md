@@ -22,7 +22,7 @@ What's Coming Pages ───┘
 release-notes-etl/
 ├── databricks.yml                        # Bundle config, variables, targets
 ├── resources/
-│   ├── release_notes_job.yml             # Job: schedule, timeout, alerts
+│   ├── release_notes_job.yml             # Job: schedule, timeout
 │   └── release_notes_dashboard.yml       # Dashboard: warehouse, catalog/schema
 └── src/
     ├── release_notes_etl.ipynb           # ETL notebook
