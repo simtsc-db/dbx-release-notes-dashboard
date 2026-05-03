@@ -22,8 +22,6 @@ variables:
     default: databricks_release_notes
   warehouse_id:
     description: SQL warehouse ID for the dashboard
-  notification_email:
-    description: Email address for job failure notifications
 
 targets:
   dev:

@@ -19,10 +19,6 @@ resources:
         timezone_id: Asia/Singapore
         pause_status: UNPAUSED
 
-      email_notifications:
-        on_failure:
-          - ${var.notification_email}
-
       tasks:
         - task_key: ingest_release_notes
           notebook_task:
