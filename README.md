@@ -5,9 +5,7 @@ Databricks Asset Bundle that ingests **AWS**, **Azure**, and **GCP** release not
 ## Architecture
 
 ```
-RSS Feeds (3 clouds)  ─┐
-                        ├─► Notebook (MERGE) ─► Delta Table ─► Dashboard
-What's Coming Pages ───┘
+RSS Feeds (AWS, Azure, GCP) ─► Notebook (MERGE) ─► Delta Table ─► Dashboard
 ```
 
 | Resource | Description |
