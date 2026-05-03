@@ -36,7 +36,7 @@ All variables without defaults are **required** and must be set at deploy time.
 | Variable | Default | Description |
 | --- | --- | --- |
 | `catalog` | *(required)* | Unity Catalog catalog |
-| `schema` | `databricks_release_notes` | Unity Catalog schema |
+| `schema` | `databricks_release_notes` | Unity Catalog schema (created automatically if it doesn't exist) |
 | `warehouse_id` | *(required)* | SQL warehouse for the dashboard |
 
 ## Quickstart
@@ -66,3 +66,4 @@ databricks bundle run -t dev release_notes_etl
 - **Dev / Prod targets** — `mode: development` auto-prefixes job name and pauses schedule
 - **Dashboard parameterisation** — `dataset_catalog` and `dataset_schema` swap per target
 - **Parameterised notebook** — `catalog` and `schema` passed as widget parameters from the job
+- **Auto-provisioning** — target schema is created automatically if it doesn't exist

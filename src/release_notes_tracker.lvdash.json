@@ -5,7 +5,7 @@
       "displayName": "Release Notes",
       "config": {
         "version": 1.1,
-        "source": "main.databricks_release_notes.release_notes",
+        "source": "release_notes",
         "dimensions": [
           {
             "name": "cloud",
