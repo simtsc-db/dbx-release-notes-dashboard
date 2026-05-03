@@ -38,7 +38,6 @@ All variables without defaults are **required** and must be set at deploy time.
 | `catalog` | *(required)* | Unity Catalog catalog |
 | `schema` | `databricks_release_notes` | Unity Catalog schema |
 | `warehouse_id` | *(required)* | SQL warehouse for the dashboard |
-| `notification_email` | *(required)* | Failure alert recipient |
 
 ## Quickstart
 
@@ -49,14 +48,12 @@ databricks bundle validate
 # Deploy to dev (prefixed, schedule paused)
 databricks bundle deploy -t dev \
   --var catalog=my_catalog \
-  --var warehouse_id=abc123def456 \
-  --var notification_email=team@example.com
+  --var warehouse_id=abc123def456
 
 # Deploy to prod
 databricks bundle deploy -t prod \
   --var catalog=prod_catalog \
-  --var warehouse_id=abc123def456 \
-  --var notification_email=team@example.com
+  --var warehouse_id=abc123def456
 
 # Trigger a run
 databricks bundle run -t dev release_notes_etl
