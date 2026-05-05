@@ -61,6 +61,18 @@ databricks bundle deploy -t prod \
 databricks bundle run -t dev release_notes_etl
 ```
 
+## Optional: SQL alert for new release notes
+
+You can create a Databricks SQL alert to get notified when new release notes are ingested:
+
+```sql
+SELECT count(*) AS new_notes
+FROM <catalog>.<schema>.release_notes
+WHERE ingested_at >= current_timestamp() - INTERVAL 1 DAY
+```
+
+Set the alert to trigger when `new_notes > 0` and configure your preferred notification destination (email, Slack, webhook). The query can be further customized focus on specific release note events.
+
 ## Key features
 
 - **Content-hash MERGE:** only updates rows whose content actually changed; reports inserted / updated / untouched counts each run
