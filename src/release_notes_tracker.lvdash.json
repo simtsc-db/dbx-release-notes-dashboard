@@ -92,9 +92,9 @@
             "multilineTextboxSpec": {
               "lines": [
                 "## Databricks Release Notes Tracker\n",
-                "AWS & Azure release notes, upcoming features, and breaking changes — updated daily.\n",
+                "AWS & Azure release notes, upcoming features, and breaking changes \u2014 updated daily.\n",
                 "\n",
-                "**Impact classification:** **High** = breaking changes, deprecations, behavior changes · **Medium** = GA releases, upcoming features, general updates · **Low** = Public Preview, Beta, Maintenance"
+                "**Impact classification:** **High** = breaking changes, deprecations, behavior changes \u00b7 **Medium** = GA releases, upcoming features, general updates \u00b7 **Low** = Public Preview, Beta, Maintenance"
               ]
             }
           },
@@ -148,7 +148,7 @@
             "x": 3,
             "y": 2,
             "width": 2,
-            "height": 2
+            "height": 1
           }
         },
         {
@@ -194,7 +194,7 @@
             "x": 5,
             "y": 2,
             "width": 2,
-            "height": 2
+            "height": 1
           }
         },
         {
@@ -240,7 +240,7 @@
             "x": 7,
             "y": 2,
             "width": 2,
-            "height": 2
+            "height": 1
           }
         },
         {
@@ -286,7 +286,7 @@
             "x": 9,
             "y": 2,
             "width": 3,
-            "height": 2
+            "height": 1
           }
         },
         {
@@ -324,9 +324,9 @@
           },
           "position": {
             "x": 0,
-            "y": 4,
+            "y": 3,
             "width": 3,
-            "height": 7
+            "height": 4
           }
         },
         {
@@ -382,9 +382,9 @@
           },
           "position": {
             "x": 6,
-            "y": 4,
+            "y": 3,
             "width": 3,
-            "height": 7
+            "height": 4
           }
         },
         {
@@ -462,9 +462,9 @@
           },
           "position": {
             "x": 3,
-            "y": 4,
+            "y": 3,
             "width": 3,
-            "height": 7
+            "height": 4
           }
         },
         {
@@ -549,9 +549,9 @@
           },
           "position": {
             "x": 9,
-            "y": 4,
+            "y": 3,
             "width": 3,
-            "height": 7
+            "height": 4
           }
         },
         {
@@ -629,7 +629,7 @@
           },
           "position": {
             "x": 0,
-            "y": 20,
+            "y": 22,
             "width": 12,
             "height": 8
           }
@@ -732,7 +732,7 @@
           },
           "position": {
             "x": 0,
-            "y": 11,
+            "y": 13,
             "width": 12,
             "height": 9
           }
@@ -793,7 +793,7 @@
             "x": 0,
             "y": 2,
             "width": 3,
-            "height": 2
+            "height": 1
           }
         },
         {
@@ -849,9 +849,9 @@
           },
           "position": {
             "x": 0,
-            "y": 28,
+            "y": 7,
             "width": 12,
-            "height": 8
+            "height": 6
           }
         }
       ],

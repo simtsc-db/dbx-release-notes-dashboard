@@ -2,6 +2,10 @@
 
 Databricks Asset Bundle that ingests **AWS**, **Azure**, and **GCP** release notes daily and powers the **Release Notes Tracker** dashboard.
 
+![Dashboard overview](docs/dashboard-overview.png)
+
+![Dashboard detail with Genie](docs/dashboard-detail.png)
+
 ## Architecture
 
 ```
@@ -17,7 +21,7 @@ RSS Feeds (AWS, Azure, GCP) ─► Notebook (MERGE) ─► Delta Table ─► Da
 ## Bundle structure
 
 ```
-release-notes-etl/
+dbx-release-notes-dashboard/
 ├── databricks.yml                        # Bundle config, variables, targets
 ├── resources/
 │   ├── release_notes_job.yml             # Job: schedule, timeout
