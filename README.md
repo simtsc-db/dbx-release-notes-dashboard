@@ -1,4 +1,4 @@
-# Release Notes ETL
+# Databricks Release Notes Dashboard
 
 Databricks Asset Bundle that ingests **AWS**, **Azure**, and **GCP** release notes daily and powers the **Release Notes Tracker** dashboard.
 
@@ -10,7 +10,7 @@ RSS Feeds (AWS, Azure, GCP) ─► Notebook (MERGE) ─► Delta Table ─► Da
 
 | Resource | Description |
 | --- | --- |
-| **Job** | `Daily Databricks Release Notes ETL` — runs at 06:00 SGT |
+| **Job** | `Daily Databricks Release Notes ETL`, runs at 06:00 SGT |
 | **Table** | `<catalog>.<schema>.release_notes` |
 | **Dashboard** | `Databricks Release Notes Tracker` |
 
@@ -59,9 +59,9 @@ databricks bundle run -t dev release_notes_etl
 
 ## Key features
 
-- **Content-hash MERGE** — only updates rows whose content actually changed; reports inserted / updated / untouched counts each run
-- **HTTP retry** — exponential backoff on 429 / 5xx errors
-- **Dev / Prod targets** — `mode: development` auto-prefixes job name and pauses schedule
-- **Dashboard parameterisation** — `dataset_catalog` and `dataset_schema` swap per target
-- **Parameterised notebook** — `catalog` and `schema` passed as widget parameters from the job
-- **Auto-provisioning** — target schema is created automatically if it doesn't exist
+- **Content-hash MERGE:** only updates rows whose content actually changed; reports inserted / updated / untouched counts each run
+- **HTTP retry:** exponential backoff on 429 / 5xx errors
+- **Dev / Prod targets:** `mode: development` auto-prefixes job name and pauses schedule
+- **Dashboard parameterisation:** `dataset_catalog` and `dataset_schema` swap per target
+- **Parameterised notebook:** `catalog` and `schema` passed as widget parameters from the job
+- **Auto-provisioning:** target schema is created automatically if it doesn't exist
