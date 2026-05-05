@@ -1,6 +1,6 @@
 # Databricks Release Notes Dashboard
 
-Databricks Asset Bundle that ingests **AWS**, **Azure**, and **GCP** release notes daily and powers the **Release Notes Tracker** dashboard.
+Databricks Asset Bundle that ingests Databricks release notes for **AWS**, **Azure**, and **GCP** daily, which power the **Databricks Release Notes Tracker** dashboard.
 
 ![Dashboard overview](docs/dashboard-overview.png)
 
