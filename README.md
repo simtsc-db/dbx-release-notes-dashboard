@@ -2,6 +2,10 @@
 
 Databricks Asset Bundle that ingests **AWS**, **Azure**, and **GCP** release notes daily and powers the **Release Notes Tracker** dashboard.
 
+![Dashboard overview](docs/dashboard-overview.png)
+
+![Dashboard detail with Genie](docs/dashboard-detail.png)
+
 ## Architecture
 
 ```
@@ -17,7 +21,7 @@ RSS Feeds (AWS, Azure, GCP) ─► Notebook (MERGE) ─► Delta Table ─► Da
 ## Bundle structure
 
 ```
-release-notes-etl/
+dbx-release-notes-dashboard/
 ├── databricks.yml                        # Bundle config, variables, targets
 ├── resources/
 │   ├── release_notes_job.yml             # Job: schedule, timeout
@@ -56,6 +60,18 @@ databricks bundle deploy -t prod \
 # Trigger a run
 databricks bundle run -t dev release_notes_etl
 ```
+
+## Optional: SQL alert for new release notes
+
+You can create a Databricks SQL alert to get notified when new release notes are ingested:
+
+```sql
+SELECT count(*) AS new_notes
+FROM <catalog>.<schema>.release_notes
+WHERE ingested_at >= current_timestamp() - INTERVAL 1 DAY
+```
+
+Set the alert to trigger when `new_notes > 0` and configure your preferred notification destination (email, Slack, webhook). The query can be further customized focus on specific release note events.
 
 ## Key features
 
